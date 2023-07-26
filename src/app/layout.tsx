@@ -1,6 +1,8 @@
 import "../styles/globals.css";
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
+import LogoGraphQL from "@/components/LogoGraphQL";
+import Navbar from "@/components/Navbar";
 
 const rubik = Rubik({ subsets: ["latin"], weight: "300" });
 
@@ -16,7 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-theme="mytheme">
-      <body className={rubik.className}>{children}</body>
+      <body className={rubik.className + ""}>
+        <LogoGraphQL />
+        <Navbar />
+        <main className="flex flex-col min-h-screen justify-center p-7">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
