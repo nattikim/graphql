@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import LogoGraphQL from "@/components/LogoGraphQL";
 import Navbar from "@/components/Navbar";
+import ApolloClientProvider from "@/components/ApolloClientProvider";
 
 const rubik = Rubik({ subsets: ["latin"], weight: "300" });
 
@@ -19,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="mytheme">
       <body className={rubik.className + ""}>
-        <LogoGraphQL />
-        <Navbar />
-        <main className="flex flex-col min-h-screen justify-center p-7">
-          {children}
-        </main>
+        <ApolloClientProvider>
+          <LogoGraphQL />
+          <Navbar />
+          <main className="flex flex-col min-h-screen justify-center p-7">
+            {children}
+          </main>
+        </ApolloClientProvider>
       </body>
     </html>
   );
