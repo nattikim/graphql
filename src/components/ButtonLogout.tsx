@@ -9,7 +9,7 @@ const ButtonLogout = () => {
         viewBox="0 0 24 24"
         strokeWidth={2}
         stroke="currentColor"
-        className="w-9 h-9 z-50 text-primary"
+        className="w-9 h-9 text-primary"
       >
         <path
           strokeLinecap="round"
