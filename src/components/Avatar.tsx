@@ -2,29 +2,28 @@ import Image from "next/image";
 import { useGetAvatar } from "@/hooks/avatar";
 import Loading from "@/components/Loading";
 
-export default function Avatar() {
-  const { user, loading, error } = useGetAvatar();
+const Avatar = ({ userId }: { userId: number | undefined }) => {
+  const { user, loading, error } = useGetAvatar(userId!);
 
   if (loading) return <Loading />;
   if (error) return <p>Error: {JSON.stringify(error.message)}</p>;
 
-  console.log("Avatar", user);
-  if (user[0].attrs !== null) {
+  if (user.attrs !== null) {
     return (
-      <figure className={"self-center"}>
+      <div className={"self-center min-w-fit"}>
         <Image
-          src={user[0].attrs}
+          src={user.attrs}
           alt="Avatar"
-          className={"rounded-full m-5 self-center"}
+          className={"rounded-full p-3"}
           width={177}
           height={177}
         />
-      </figure>
+      </div>
     );
   }
 
   return (
-    <div className={"m-5 self-center"}>
+    <div className={"self-center"}>
       <svg
         xmlns={"http://www.w3.org/2000/svg"}
         viewBox={"0 0 24 24"}
@@ -43,4 +42,6 @@ export default function Avatar() {
       </svg>
     </div>
   );
-}
+};
+
+export default Avatar;

@@ -1,27 +1,28 @@
 import { useQuery } from "@apollo/client";
 import { gql } from "graphql-tag";
-import { getUserId } from "@/lib/userId";
-
-const userId = getUserId();
-console.log("userId", userId, typeof userId);
 
 const GET_AVATAR = gql`
-  query user($userId: Int!) {
+  query ($userId: Int!) {
     user(where: { id: { _eq: $userId } }) {
       attrs(path: "image")
     }
   }
 `;
-export const useGetAvatar = () => {
-  const userId = getUserId();
+
+export type Avatar = {
+  attrs: {
+    path: string;
+  };
+};
+export const useGetAvatar = (userId: number | undefined) => {
   const { data, loading, error } = useQuery(GET_AVATAR, {
-    variables: { userId },
-    skip: userId === undefined,
+    variables: {
+      userId,
+    },
   });
-  console.log("useGetMeUserId", userId);
-  console.log("data", data);
+
   return {
-    user: data?.user,
+    user: data?.user[0],
     loading,
     error,
   };
