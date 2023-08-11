@@ -1,6 +1,6 @@
 const LogoGraphQL = () => {
   return (
-    <div className="absolute flex flex-col w-full h-[100%] items-center justify-center py-5 sm:py-20 opacity-80">
+    <div className="fixed flex flex-col w-full h-[100%] items-center justify-center py-5 sm:py-20 opacity-70">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 100 100"
