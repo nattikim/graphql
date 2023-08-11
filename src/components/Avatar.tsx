@@ -13,6 +13,7 @@ const Avatar = ({ userId }: { userId: number | undefined }) => {
       <div className={"self-center min-w-fit"}>
         <Image
           src={user.attrs}
+          loader={({ src }) => src}
           alt="Avatar"
           className={"rounded-full p-3"}
           width={177}
