@@ -66,7 +66,7 @@ export default function Home() {
                     "font-black text-xl font-mono text-neutral flex flex-col justify-center"
                   }
                 >
-                  {user.transactions[0].amount}
+                  {user.transactions?.[0]?.amount}
                 </p>
               </div>
             </div>
