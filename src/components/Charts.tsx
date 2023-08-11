@@ -13,9 +13,9 @@ const Charts = ({ userId }: { userId: number | undefined }) => {
   };
   return (
     <>
-      <div className="tabs border border-neutral rounded-full p-1">
+      <div className="tabs border border-neutral rounded-full mb-3 p-0">
         <a
-          className={`tab text-neutral ${
+          className={`tab text-neutral text-xs sm:text-sm px-2 ${
             activeTab === 1
               ? "tab-active bg-neutral rounded-full text-neutral-content"
               : ""
@@ -25,7 +25,7 @@ const Charts = ({ userId }: { userId: number | undefined }) => {
           Projects
         </a>
         <a
-          className={`tab text-neutral ${
+          className={`tab text-neutral text-xs sm:text-sm px-2 ${
             activeTab === 2
               ? "tab-active bg-neutral rounded-full text-neutral-content"
               : ""
@@ -35,7 +35,7 @@ const Charts = ({ userId }: { userId: number | undefined }) => {
           Piscine Go
         </a>
         <a
-          className={`tab text-neutral ${
+          className={`tab text-neutral text-xs sm:text-sm px-2 ${
             activeTab === 3
               ? "tab-active bg-neutral rounded-full text-neutral-content"
               : ""
