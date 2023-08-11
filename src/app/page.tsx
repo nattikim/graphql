@@ -7,7 +7,6 @@ import { getUserId } from "@/lib/userId";
 import UserCard from "@/components/UserCard";
 import { useRouter } from "next/navigation";
 import Skills from "@/components/Skills";
-import { useProgress } from "@/hooks/charts";
 import Charts from "@/components/Charts";
 
 export default function Home() {
@@ -25,7 +24,6 @@ export default function Home() {
     }
   }, [userId, router]);
 
-  const progress = useProgress(userId!);
   const { user, loading, error } = useInfo(userId!);
 
   const roundedAuditRatio = Math.round(user.auditRatio * 10) / 10;
@@ -34,17 +32,11 @@ export default function Home() {
 
   if (error)
     return (
-      <p
-        className={
-          "z-10 p-5 bg-base-100 text-xl rounded-md text-error text-center"
-        }
-      >
-        Error: {JSON.stringify(error.message)}
-      </p>
+      console.log(error)
     );
 
   return (
-    <main className="z-10 items-center mt-7 text-center sm:text-left">
+    <main className="z-10 items-center m-auto text-center sm:text-left max-w-fit">
       <div className="flex flex-col sm:grid sm:grid-cols-2 gap-5 ">
         <div className="flex flex-col items-center justify-between w-full h-full gap-5">
           <UserCard userId={userId} />
@@ -53,7 +45,7 @@ export default function Home() {
               "flex flex-col lg:flex-row items-center justify-between text-center w-full h-full gap-5"
             }
           >
-            <div className="card backdrop-blur-3xl shadow-xl w-full h-full ">
+            <div className="card backdrop-blur-3xl shadow-xl w-full h-full">
               <div className="card-body">
                 TOTAL XP
                 <p
