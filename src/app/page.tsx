@@ -27,13 +27,13 @@ export default function Home() {
   const { user, loading, error } = useInfo(userId!);
 
   const roundedAuditRatio = Math.round(user.auditRatio * 10) / 10;
+  const xpAmount = user.xpAmount?.aggregate?.sum?.amount ?? 0;
+  const firstThreeDigits = xpAmount.toString().substring(0, 3);
 
   if (loading) return <Loading />;
 
   if (error)
-    return (
-      console.log(error)
-    );
+    console.log("Error: " + JSON.stringify(error.message) + " " + userId);
 
   return (
     <main className="z-10 items-center m-auto text-center sm:text-left max-w-fit">
@@ -53,7 +53,7 @@ export default function Home() {
                     "font-black text-xl font-mono text-neutral flex flex-col justify-center"
                   }
                 >
-                  {user.xpAmount.aggregate.sum.amount}
+                  {firstThreeDigits}
                 </p>
               </div>
             </div>
