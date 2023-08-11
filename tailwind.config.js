@@ -1,18 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   daisyui: {
+    darkTheme: "dark_theme",
     themes: [
       {
-        mytheme: {
-          "primary": "#49235d",
-          "secondary": "#E10098",
-          "accent": "#c3cd37",
-          "neutral": "#2d3034",
+        light_theme: {
+          primary: "#49235d",
+          secondary: "#E10098",
+          accent: "#dcec00",
+          neutral: "#998b9a",
+          "base-content": "#4b4b4b",
           "base-100": "#ffffff",
 
           "--rounded-box": "1rem", // border radius rounded-box utility class, used in card and other large boxes
@@ -24,7 +26,14 @@ module.exports = {
           "--btn-focus-scale": "0.95", // scale transform of button when you focus on it
           "--border-btn": "1px", // border width of buttons
           "--tab-border": "1px", // border width of tabs
-          "--tab-radius": "0.5rem", // border radius of tabs
+        },
+        dark_theme: {
+          primary: "#b97dd7",
+          secondary: "#E10098",
+          accent: "#c3cd37",
+          neutral: "#836886",
+          "base-content": "#d9d9d9",
+          "base-100": "#181818",
         },
       },
     ],
@@ -32,11 +41,11 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },
   plugins: [require("daisyui")],
-}
+};
