@@ -1,8 +1,18 @@
+"use client";
+
 import Link from "next/link";
+import { useLogout } from "@/lib/auth";
 
 const ButtonLogout = () => {
+  const { logout } = useLogout();
+
   return (
-    <Link href={"/logout"} title={"Logout"} className={"hover:hue-rotate-90"}>
+    <Link
+      onClick={logout}
+      href={"/login"}
+      title={"Logout"}
+      className={"hover:saturate-200"}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
