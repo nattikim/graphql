@@ -11,12 +11,9 @@ const UserCard = ({ userId }: { userId: number | undefined }) => {
         <h1 className="text-3xl text-primary">
           {user.firstName} {user.lastName}
         </h1>
-        <Link
-          href={""}
-          className={"badge badge-primary self-center lg:self-start"}
-        >
+        <div className={"badge badge-primary self-center lg:self-start"}>
           {user.login}
-        </Link>
+        </div>
         <p className={"mt-3"}>
           {user.attrs}
           <br />
